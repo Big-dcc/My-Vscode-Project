@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import glob
+from pprint import pprint
 import shutil
 
 print(os.getcwd())
@@ -14,9 +14,14 @@ file_list = list(Path('d:\VS_code\My-Vscode-Project').glob('*.py'))
 print(file_list)
 for file in file_list:
     print(file.name)
+    print(file)
     # with open (file, 'r', encoding='utf-8') as f:
     #     print(f.read())
 
+print(os.listdir('d:\VS_code\My-Vscode-Project'))
+print(os.path.abspath('d:\VS_code\My-Vscode-Project'))
+
+print("###############################")
 
 f = open('d:\VS_code\My-Vscode-Project\demofile.txt', 'r+', encoding='utf-8')
 
@@ -39,9 +44,11 @@ f.close()
 print(dir(shutil))
 shutil.copy('d:\VS_code\My-Vscode-Project\demofile.txt', 'd:\VS_code\My-Vscode-Project\demofile_copy.txt')
 shutil.move('d:\VS_code\My-Vscode-Project\demofile_copy.txt', 'd:\VS_code\My-Vscode-Project\demofile_copy_moved.txt')
-os.remove('d:\VS_code\My-Vscode-Project\demofile_copy_moved.txt')
 
-with open ('d:\VS_code\My-Vscode-Project\demofile.txt', 'r', encoding='utf-8') as f:
+with open('d:\VS_code\My-Vscode-Project\demofile.txt', 'r', encoding='utf-8') as f:
     for i, line in enumerate(f):
         print(i, line, end='')
-        
+
+if os.path.exists('d:\VS_code\My-Vscode-Project\demofile_copy_moved.txt'):
+    os.remove('d:\VS_code\My-Vscode-Project\demofile_copy_moved.txt')
+    print('\nFile deleted')

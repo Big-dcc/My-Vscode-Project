@@ -23,6 +23,19 @@ a = re.match("^.+@.+\..+$", email)
 print(a.group())
 
 # 字符串内匹配ip地址
-ip = "八达仓库 ip:232.23.9.12 askd "
+ip = "232.23.9.12"
 a = re.findall("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", ip)
 print(a)
+b = re.match('(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}', ip)
+print(b)
+obj = re.findall('\d+?', 'u123uu888asf')
+if obj:
+    print(obj)
+content = "123abc456"
+# new_content = re.sub('\d+', 'sb', content)
+new_content = re.sub('[a-z]+', 'sb', content, 1)
+print(new_content)
+content = "'1 - 2 * ((60-30+1*(9-2*5/3+7/3*99/4*2998+10*568/14))-(-4*3)/(16-3*2) )'"
+new_content = re.split('[\+\-\*\/]+', content)
+# new_content = re.split('\*', content, 1)
+print(new_content)
